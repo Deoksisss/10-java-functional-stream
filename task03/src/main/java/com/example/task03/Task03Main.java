@@ -2,6 +2,7 @@ package com.example.task03;
 
 import java.util.Comparator;
 import java.util.function.BiConsumer;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Task03Main {
@@ -17,11 +18,21 @@ public class Task03Main {
 
     }
 
+    record MinMax<T>(T min, T max) {}
+
     public static <T> void findMinMax(
             Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
 
-        // your implementation here
+        var result = stream.collect(
+                Collectors.teeing(
+                        Collectors.minBy(order),
+                        Collectors.maxBy(order),
+                        (minOpt, maxOpt) -> new MinMax<>(minOpt.orElse(null), maxOpt.orElse(null))
+                )
+        );
+
+        minMaxConsumer.accept(result.min(), result.max());
     }
 }
