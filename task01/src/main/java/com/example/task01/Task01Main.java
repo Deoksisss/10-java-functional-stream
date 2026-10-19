@@ -22,6 +22,10 @@ public class Task01Main {
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
+        Objects.requireNonNull(condition);
+        Objects.requireNonNull(ifTrue);
+        Objects.requireNonNull(ifFalse);
+
         return t -> condition.test(t) ? ifTrue.apply(t) : ifFalse.apply(t);
 
     }
