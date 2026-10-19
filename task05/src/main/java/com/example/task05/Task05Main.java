@@ -9,8 +9,6 @@ public class Task05Main {
 
     public static void main(String[] args) {
 
-        /*
-
         // Random variables
         String randomFrom = "..."; // Некоторая случайная строка. Можете выбрать ее самостоятельно.
         String randomTo = "...";  // Некоторая случайная строка. Можете выбрать ее самостоятельно.
@@ -23,9 +21,9 @@ public class Task05Main {
                 "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
         );
 
-        assert firstMessage.getFrom().equals("Robert Howard") : "Wrong firstMessage from address";
-        assert firstMessage.getTo().equals("H.P. Lovecraft") : "Wrong firstMessage to address";
-        assert firstMessage.getContent().endsWith("Howard!") : "Wrong firstMessage content ending";
+        assert firstMessage.from().equals("Robert Howard") : "Wrong firstMessage from address";
+        assert firstMessage.to().equals("H.P. Lovecraft") : "Wrong firstMessage to address";
+        assert firstMessage.content().endsWith("Howard!") : "Wrong firstMessage content ending";
 
         MailMessage secondMessage = new MailMessage(
                 "Jonathan Nolan",
@@ -83,12 +81,11 @@ public class Task05Main {
         // Получение и проверка словаря "почтового ящика",
         //   где по получателю можно получить список зарплат, которые были ему отправлены.
         Map<String, List<Integer>> salaries = salaryService.getMailBox();
-        assert salaries.get(salary1.getTo()).equals(Arrays.asList(1)) : "wrong salaries mailbox content (1)";
-        assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)) : "wrong salaries mailbox content (2)";
+        assert salaries.get(salary1.to()).equals(Arrays.asList(1)) : "wrong salaries mailbox content (1)";
+        assert salaries.get(salary2.to()).equals(Arrays.asList(Integer.MAX_VALUE)) : "wrong salaries mailbox content (2)";
         assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)) : "wrong salaries mailbox content (3)";
 
 
-        */
 
     }
 
